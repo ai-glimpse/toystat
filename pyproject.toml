@@ -2,42 +2,43 @@
 name = "toystat"
 version = "0.0.1"
 description = "ToyStat"
-authors = [
-    { name = "Xiangzhuang Shen", email = "datahonor@gmail.com" }
-]
-dependencies = [
-]
+authors = [{ name = "Xiangzhuang Shen", email = "datahonor@gmail.com" }]
+dependencies = []
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.9"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "setuptools~=67.8.0",
-    "ipython>=8.12.2",
-    "mkdocs-material~=9.1.16",
-    "mkdocs-material-extensions~=1.1.1",
-    "mkdocstrings~=0.22.0",
-    "mkdocs~=1.4.3",
-    "mkdocs-bibtex~=2.9.0",
-    "pre-commit~=3.3.3",
-    "isort~=5.12.0",
-    "flake8~=5.0.4",
-    "black~=23.3.0",
-    "mypy~=1.4.0",
-    "pandas-stubs~=2.0.2.230605",
-    "pytest~=7.3.2",
-    "hypothesis~=6.79.1",
-    "pytest-cov>=4.1.0",
-    "pip>=23.2.1",
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "ipython",
+    "black",
+    "flake8",
+    "mypy",
+    "isort",
+    "ruff",
+    "pytest",
+    "pytest-cov",
+    "pytest-sugar",
+    "hypothesis>=6.112.0",
+    "commitizen",
 ]
-[tool.hatch.metadata]
-allow-direct-references = true
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-material-extensions",
+    "mkdocstrings",
+    "mkdocs-bibtex",
+    "mkdocstrings-python",
+    "mkdocs-autorefs",
+    "mkdocs-git-committers-plugin-2",
+    "mkdocs-git-revision-date-localized-plugin",
+]
 
-[[tool.rye.sources]]
+[[tool.uv.index]]
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
